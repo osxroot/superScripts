@@ -23,12 +23,31 @@ quarPURGE=30
 ###################### VARs and FUNCTIONS
 Mailstore="`serveradmin settings mail:imap:partition-default | cut -d '"' -f 2`"
 
-# 10.9
-BAYES="/Library/Server/Mail/Data/scanner/amavis/.spamassassin"
-# 10.6
-#BAYES="/var/amavis/.spamassassin"
+OSVersion=`sw_vers -productVersion | cut -d. -f1 -f2`
 
-spamav_user="_amavisd"
+case $OSVersion in
+        10.9)
+
+                BAYES="/Library/Server/Mail/Data/scanner/amavis/.spamassassin"
+                ;;
+        10.8)
+
+                BAYES="/Library/Server/Mail/Data/scanner/amavis/.spamassassin"
+                ;;
+        10.7)
+
+                BAYES="/Library/Server/Mail/Data/scanner/amavis/.spamassassin"
+                ;;
+                
+        10.6)
+                BAYES="/var/amavis/.spamassassin"
+                ;;
+        *)
+                echo "This script requires 10.6 (Snow Leopard) or higher"
+                exit 1
+                ;;
+esac
+
 
 function makeFOLDER {
     mkdir -p "$box/.$1"/{cur,new,tmp}
