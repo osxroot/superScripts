@@ -16,7 +16,7 @@ echo -e "\n`date`" >> /var/log/ms-lock-delete.log
 
 for (( i = 0 ; i < ${#myTarget[@]} ; i++ )) do
     echo -e "\n####Processing: ${myTarget[$i]}"
-    find "${myTarget[$i]}" -type f -name "~\$*" -maxdepth 1 -print0 2>/dev/null | while IFS= read -r -d '' file; do          
+    find "${myTarget[$i]}" -type f -name "~\$*" -print0 2>/dev/null | while IFS= read -r -d '' file; do          
        realname="`basename "$file" | tr -d '~$'`"
        ## Check if the file is currently open
        isopen=`lsof "$realname" 2>/dev/null | wc -l`
@@ -34,3 +34,4 @@ done
 
 ########## End Target Loop
 
+exit 0
