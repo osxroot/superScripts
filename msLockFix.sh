@@ -3,7 +3,7 @@
 #    Enter your target paths here
 #    Each path should be quoted with a space in between
 #    myTarget=( "/Volumes/Data" "/Volumes/SharePoints" )
-myTarget=( "/Volumes/DSVDATA" "/Volumes/DSVFTPAREA" )
+myTarget=( "/Volumes/DATA" "/Volumes/Users" )
 
 ########## Init
 
