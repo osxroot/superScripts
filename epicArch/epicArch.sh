@@ -226,7 +226,7 @@ targetBox="Archive"
 #       Get all valid users ignoring orphaned boxes
 
 # Get the mail partition directory
-        mailpartition_PATH=`serveradmin settings mail:imap:partition-default | cut -d '"' -f 2`
+        mailpartition_PATH=`/Applications/Server.app/Contents/ServerRoot/usr/sbin/serveradmin settings mail:imap:partition-default | cut -d '"' -f 2`
 
 # Loop through GUID directories and check the user shortname
         for archiveGUID in `ls -1 $mailpartition_PATH`; do
