@@ -164,7 +164,7 @@ function empty
 #####################################
 #       Declarations & Default Values   #
 #####################################
-
+PATH=/Applications/Server.app/Contents/ServerRoot/usr/sbin:/Applications/Server.app/Contents/ServerRoot/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH
 declare -a userArray
 declare -a sourceBoxes
 declare -a monthNames
