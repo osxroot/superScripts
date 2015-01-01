@@ -190,18 +190,18 @@ fi
 
 #       Set the Default Archive Folder month
 case $curMonth in
-        01) archMonth=10
+        1) archMonth=10
         ;;
-        02) archMonth=11
+        2) archMonth=11
         ;;
-        03) archMonth=12
+        3) archMonth=12
         ;;
          *) archMonth=$((curMonth -3))
          ;;
 esac
 
 index=($archMonth-1) ## must subtract 1 for array to work
-queryMonth=$((curMonth -2))
+queryMonth=$((archMonth +1))
 
 #       Append Archive month with leading 0 - required by Dovecot date calls
 if (( $archMonth < 10 ))
@@ -219,7 +219,7 @@ if (( $queryMonth < 10 ))
 fi
 
 archLabel="$numMonth-$archMonth"
-searchQuery="BEFORE $curYear-$queryMonth-01"
+searchQuery="BEFORE $archYear-$queryMonth-01"
 
 
 targetBox="Archive"
