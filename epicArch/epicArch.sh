@@ -80,6 +80,12 @@ fi
 OSVersion=`sw_vers -productVersion | cut -d. -f1 -f2`
 
 case $OSVersion in
+        10.11)
+                 server_root_path="/Applications/Server.app/Contents/ServerRoot"
+                 ;;
+	10.10)
+		server_root_path="/Applications/Server.app/Contents/ServerRoot"
+		;;
         10.9)
 
                 server_root_path="/Applications/Server.app/Contents/ServerRoot"
